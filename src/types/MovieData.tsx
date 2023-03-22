@@ -35,7 +35,11 @@
 
 */
 
-export default interface IMovieData {
+export interface IMediaContainer {
+  MetaData: IMovieData[]
+}
+
+export interface IMovieData {
   key: string,
   title: string,
   summary: string,

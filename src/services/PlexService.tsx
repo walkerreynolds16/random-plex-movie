@@ -1,4 +1,4 @@
-import IMovieData from "../types/MovieData";
+import {IMovieData, IMediaContainer} from "../types/MovieData";
 import IPlexConfig from "../types/PlexConfig";
 import axios from "axios";
 
@@ -30,11 +30,14 @@ const getAllMovies = async () => {
   //       data: error.response,
   //     };
   //   });
-  return await axios.get<Array<IMovieData>>(
+  return await axios.get<any>(
     `${plexConfig.baseUrl}/${url}`,
     {
       params: {
         "X-Plex-Token": plexConfig.plexToken,
+      },
+      headers: {
+        "Accept": "application/json"
       }
     }
   )
